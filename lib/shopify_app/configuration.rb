@@ -20,6 +20,9 @@ module ShopifyApp
     # configure myshopify domain for local shopify development
     attr_accessor :myshopify_domain
 
+    # allow enabling of same site none on cookies
+    attr_accessor :enable_same_site_none
+
     def initialize
       @myshopify_domain = 'myshopify.com'
     end
@@ -38,6 +41,10 @@ module ShopifyApp
 
     def webhooks_manager_queue_name
       @webhooks_manager_queue_name ||= Rails.application.config.active_job.queue_name
+    end
+
+    def enable_same_site_none
+      @enable_same_site_none.nil? ? embedded_app? : @enable_same_site_none
     end
   end
 

@@ -26,6 +26,9 @@ require 'shopify_app/webhook_verification'
 require 'shopify_app/app_proxy_verification'
 require 'shopify_app/utils'
 
+# middleware
+require 'shopify_app/middleware/same_site_cookie_middleware'
+
 # session repository
 require 'shopify_app/shopify_session_repository'
 require 'shopify_app/in_memory_session_store'
