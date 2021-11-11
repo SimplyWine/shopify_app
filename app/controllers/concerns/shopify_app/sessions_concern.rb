@@ -5,7 +5,7 @@ module ShopifyApp
     
     included do
       include ShopifyApp::LoginProtection
-      layout false, only: :new
+      layout false
 
       after_action only: [:new, :create] do |controller|
         controller.response.headers.except!('X-Frame-Options')
